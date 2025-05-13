@@ -13,6 +13,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "JOIN details d ON p.id = d.product_id" +
             "JOIN buyers b ON b.id = d.buyer.id" +
             "WHERE b.name = :buyerName" +
-            "ORDER BY d.date DESK")
+            "ORDER BY d.date DESK",
+            nativeQuery = true)
     List<Product> showProductByBuyerName(@Param("buyerName") String buyerName);
 }
