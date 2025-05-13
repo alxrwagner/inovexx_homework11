@@ -10,6 +10,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+@Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +18,8 @@ public class Product {
 
     @Column(name = "cost")
     private BigDecimal cost;
-
+    @Column(name = "title")
+    private String title;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<PurchaseDetail> details;
 }

@@ -2,7 +2,7 @@ spring:
   application:
     name: ms-kroc-prod
   datasource:
-    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/${POSTGRES_DATABASE:postgres}
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/${POSTGRES_DATABASE:shop}
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
