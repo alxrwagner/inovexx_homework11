@@ -21,7 +21,7 @@ public class PurchaseService {
     private final BuyerRepository buyerRepository;
     private final PurchaseDetailRepository purchaseRepository;
 
-    public PurchaseDetail purchase(Long productId, Long buyerId){
+    public PurchaseDetail buy(Long productId, Long buyerId){
         Product product = productRepository.findById(productId).orElseThrow(()-> new ProductNotFoundException(productId));
         Buyer buyer = buyerRepository.findById(buyerId).orElseThrow(() -> new BuyerNotFoundException(buyerId));
         PurchaseDetail detail = new PurchaseDetail();

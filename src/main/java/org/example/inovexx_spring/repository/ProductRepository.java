@@ -2,6 +2,7 @@ package org.example.inovexx_spring.repository;
 
 import org.example.inovexx_spring.entities.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -16,4 +17,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "ORDER BY d.date DESK",
             nativeQuery = true)
     List<Product> showProductByBuyerName(@Param("buyerName") String buyerName);
+
+    @Modifying
+    @Query(value = "DELETE Product p FROM products WHERE title = :productTitle", nativeQuery = true)
+    void removeBuyer(@Param("productTitle") String productTitle);
 }
